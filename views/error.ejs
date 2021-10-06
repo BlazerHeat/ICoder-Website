@@ -1,0 +1,10 @@
+ <link rel="stylesheet" href="/css/error.css">
+
+ <div class="container">
+     <div class="head-text">
+         <h1 class="status-code"><%= statusCode ? statusCode : 404 %></h1>
+         <h2 class="error-text"><%= errorText ? errorText : "Page Not Found" %></h2>
+     </div>
+     <p class="error-desc"><%= errorDesc ? errorDesc : "The page you were looking for was not found. Please verify the link/URL or try starting back at our home page." %></p>
+     <a href="/" class="home-btn">Home Page</a>
+ </div>

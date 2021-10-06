@@ -1,0 +1,220 @@
+header {
+    background: rgba(0, 0, 0, 0.92);
+    color: white;
+
+    padding: 10px 0;
+
+    position: fixed;
+    width: 100%;
+
+    z-index: 100;
+    top: 0;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    width: 80%;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 1.2em;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.logo h1 {
+    margin-left: 10px;
+}
+
+.nav-list {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1em;
+}
+
+.list-item {
+    margin: 0 0.5em;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+
+    padding: 0.2em 0.5em;
+    transition: border-bottom ease-in 0.1s;
+}
+
+.nav-link:hover, .active {
+    border-bottom: 2px solid white;
+}
+
+#login-btn {
+    border: 2px solid #75ec4a;
+    color: #75ec4a;
+    border-radius: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color ease-in 0.1s, background ease-in 0.1s;
+}
+
+#login-btn:hover, .active-login-btn {
+    background: #75ec4a !important;
+    color: black !important;
+}
+
+#dashboard-btn {
+    border: 2px solid #4ad4ec;
+    color: #4ad4ec;
+    border-radius: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color ease-in 0.1s, background ease-in 0.1s;
+}
+#dashboard-btn:hover, .active-dashboard-btn {
+    background: #4ad4ec !important;
+    color: black !important;
+}
+
+.burger {
+    display: none;
+}
+
+.burger-line {
+    width: 100%;
+    height: 2px;
+    background: white;
+
+    border-radius: 1200px;
+}
+
+@media only screen and (max-width: 860px) {
+    .navbar {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+
+    .navbar {
+        width: 80%;
+    }
+
+    .nav-list {
+        position: fixed;
+        left: 0;
+        top: -1200px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        height: 100vh;
+        width: 100vw;
+
+        transition: top .25s ease-in;
+
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 25px;
+        height: 20px;
+        z-index: 201;
+
+        transition: top 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color ease-in 0.1s, background ease-in 0.1s;
+    }
+
+    .burger-line {
+        transition: .2s ease-in;
+    }
+}
+
+.open-nav-list {
+    top: 0;
+    z-index: 200;
+}
+
+.open-nav-list li {
+    margin-top: 1em;
+}
+
+.zero-opacity {
+    opacity: 0;
+    transition: opacity .05s ease-in;
+}
+
+.burger-cross {
+    transform: rotate(45deg);
+    height: 3px;
+    transition: transform 0.1s ease-in;
+}
+.burger-cross::before {
+    content: " ";
+    position: absolute;
+    background: white;
+    width: 100%;
+    height: 3px;
+    transform: rotate(90deg);
+}
+
+.scroll-to-top {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 101, 253, 0.89);
+    color: white;
+    width: 50px;
+    height: 50px;
+
+    border-radius: 1200px;
+
+    cursor: pointer;
+
+    transition: transform 1s ease-in, right 1s ease-in-out;
+}
+
+.scroll-to-top-hide {
+    right: -100px !important;
+    transform: rotate(-90deg);
+}

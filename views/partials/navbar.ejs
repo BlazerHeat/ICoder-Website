@@ -1,0 +1,43 @@
+<header>
+    <nav class="navbar">
+        <a class="logo" href="/">
+            <img src="/images/logo/logo_banner_transparent.png" alt="logo">
+        </a>
+        <ul class="nav-list">
+            <li class="list-item">
+                <a href="/" class="nav-link <% if(typeof title !== "undefined" && title === 'Home') { %><%= "active" %> <% } %>">Home</a>
+            </li>
+            <li class="list-item">
+                <a href="#" class="nav-link <% if(typeof title !== "undefined" && title === 'About') { %><%= "active" %> <% } %>">About</a>
+            </li>
+            <li class="list-item">
+                <a href="#" class="nav-link <% if(typeof title !== "undefined" && title === 'Contact') { %><%= "active" %> <% } %>">Contact</a>
+            </li>
+            <li class="list-item">
+                <a href="#" class="nav-link <% if(typeof title !== "undefined" && title === 'Certification') { %><%= "active" %> <% } %>">Certification</a>
+            </li>
+            <li class="list-item">
+
+                <% if(typeof user !== "undefined") { %>
+                    <a href="/dashboard" class="nav-link <% if(typeof title !== "undefined" && title === 'Dashboard') { %><%= "active-dashboard-btn" %> <% } %>" id="dashboard-btn">
+                        <%= user.displayName.split(" ")[0] %>
+                    </a>
+                <% } else { %>
+                <a href="/auth" class="nav-link <% if(typeof title !== "undefined" && title === 'Login') { %><%= "active-login-btn" %> <% } %>" id="login-btn">
+                    Login
+                </a>
+                <% } %>
+            </li>
+        </ul>
+        <div class="burger">
+            <div class="burger-line" id="burger-line1"></div>
+            <div class="burger-line" id="burger-line2"></div>
+            <div class="burger-line" id="burger-line3"></div>
+        </div>
+    </nav>
+
+    <div class="scroll-to-top scroll-to-top-hide" id="scroll-to-top-icon">
+        <i class="fas fa-angle-double-up"></i>
+    </div>
+
+</header>

@@ -1,0 +1,32 @@
+{
+  "name": "icoder",
+  "version": "1.0.0",
+  "description": "SGP project",
+  "main": "app.js",
+  "scripts": {
+    "run": "node app.js",
+    "start": "node app.js",
+    "devStart": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "BlazerHeat",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.2",
+    "cookie-session": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "install": "^0.13.0",
+    "mongoose": "^6.0.8",
+    "npm": "^7.24.1",
+    "passport": "^0.5.0",
+    "passport-facebook": "^3.0.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0",
+    "path": "^0.12.7"
+  }
+}

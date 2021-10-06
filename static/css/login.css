@@ -1,0 +1,131 @@
+.user-login {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/bg/login_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.login-page {
+    width: 720px;
+    background: rgba(255, 255, 255, 1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Brutal Type', 'Poppins', sans-serif;
+
+    padding: 1em;
+    margin: 0 1em;
+}
+
+.login-head-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    user-select: none;
+}
+
+.login-page img {
+    width: 45px;
+    margin-right: 10px;
+}
+
+.login-head-text h1 {
+    font-size: 2em;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-head-text p {
+    font-style: italic;
+}
+
+.login-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 10px;
+    user-select: none;
+}
+
+.login-btn {
+    padding: .3em .7em;
+    text-decoration: none;
+    color: white;
+
+    width: 80%;
+    max-width: 200px;
+    margin: .5em 0;
+    border-radius: 3px;
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    border: 3px solid transparent;
+
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-btn:hover {
+    transform: scale(1.1);
+}
+
+.login-btn i {
+    border-right: 2px solid rgba(255, 255, 255, 0.7);
+    padding-right: 5px;
+}
+
+.login-btn p {
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+#github-login {
+    background: black;
+}
+
+#google-login {
+    background: rgb(219,68,55);
+}
+
+#facebook-login {
+    background: rgb(59,89,153);
+}
+
+#homepage-btn {
+    margin-right: auto;
+    text-decoration: none;
+
+    border-bottom: 2px solid transparent;
+    transition: border-bottom ease-in 0.1s;
+}
+#homepage-btn:hover {
+    border-bottom: 2px solid rgb(85,26,139);
+}
+
+#homepage-btn i {
+    margin-right: 5px;
+}

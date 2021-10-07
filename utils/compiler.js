@@ -1,6 +1,6 @@
 const axios = require("axios");
 const chalk = require("chalk");
-const API_END_POINT = require('./config.json').JDoodle_API_ENDPOINT;
+const API_END_POINT = require('../config.json').JDoodle_API_ENDPOINT;
 
 module.exports = async (language, script, stdin = "") => {
     let res = await axios({

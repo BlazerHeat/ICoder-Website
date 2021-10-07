@@ -27,7 +27,7 @@ const expressLayouts = require('express-ejs-layouts')
 const cookieSession = require("cookie-session");
 const compression = require('compression');
 const app = express();
-const compiler = require("./compiler");
+const compiler = require("./utils/compiler");
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 const authRoute = require('./routes/auth');

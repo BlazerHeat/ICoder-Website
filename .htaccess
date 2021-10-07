@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.icoder-go.herokuapp.com [NC]
+RewriteRule ^(.*)$ http://icoder-go.herokuapp.com/$1 [L,R=301]

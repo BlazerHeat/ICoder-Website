@@ -1,4 +1,8 @@
 @font-face {
+    font-family: 'Poppins';
+    src: url("../fonts/Poppins-Regular.ttf") format('truetype');
+}
+@font-face {
     font-family: 'Brutal Type';
     src: url("../fonts/BrutalType.ttf") format('truetype');
 }

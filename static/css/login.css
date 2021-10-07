@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 
-    background-image: linear-gradient(var(--black-medium-opacity), var(--black-medium-opacity)), url("/images/bg/compressed/login_bg.jpg");
+    background-image: linear-gradient(var(--black-medium-opacity), var(--black-medium-opacity)), url("/images/bg/compressed/login_bg.webp");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

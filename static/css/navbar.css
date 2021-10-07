@@ -1,6 +1,6 @@
 header {
-    background: rgba(0, 0, 0, 0.92);
-    color: white;
+    background: var(--black-high-opacity);
+    color: var(--white);
 
     padding: 10px 0;
 
@@ -26,7 +26,7 @@ header {
 
 .logo {
     text-decoration: none;
-    color: white;
+    color: var(--white);
     font-size: 1.5em;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ header {
 }
 
 .nav-link {
-    color: white;
+    color: var(--white);
     text-decoration: none;
     border: 2px solid transparent;
 
@@ -69,11 +69,11 @@ header {
 }
 
 .nav-link:hover, .active {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--white);
 }
 
 #login-btn {
-    border: 2px solid #75ec4a;
+    border: 2px solid var(--light-green);
     color: #75ec4a;
     border-radius: 3px;
 
@@ -85,13 +85,13 @@ header {
 }
 
 #login-btn:hover, .active-login-btn {
-    background: #75ec4a !important;
-    color: black !important;
+    background: var(--light-green) !important;
+    color: var(--black) !important;
 }
 
 #dashboard-btn {
-    border: 2px solid #4ad4ec;
-    color: #4ad4ec;
+    border: 2px solid var(--cyan);
+    color: var(--cyan);
     border-radius: 3px;
 
     display: flex;
@@ -101,8 +101,8 @@ header {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color ease-in 0.1s, background ease-in 0.1s;
 }
 #dashboard-btn:hover, .active-dashboard-btn {
-    background: #4ad4ec !important;
-    color: black !important;
+    background: var(--cyan) !important;
+    color: var(--black) !important;
 }
 
 .burger {
@@ -112,7 +112,7 @@ header {
 .burger-line {
     width: 100%;
     height: 2px;
-    background: white;
+    background: var(--white);
 
     border-radius: 1200px;
 }
@@ -145,7 +145,7 @@ header {
 
         transition: top .25s ease-in;
 
-        background: rgba(0, 0, 0, 0.8);
+        background: var(--black-high-opacity);
     }
 
     .burger {
@@ -187,7 +187,7 @@ header {
 .burger-cross::before {
     content: " ";
     position: absolute;
-    background: white;
+    background: var(--white);
     width: 100%;
     height: 3px;
     transform: rotate(90deg);
@@ -202,8 +202,8 @@ header {
     justify-content: center;
     align-items: center;
 
-    background: rgba(0, 101, 253, 0.89);
-    color: white;
+    background: var(--light-blue-high-opacity);
+    color: var(--white);
     width: 50px;
     height: 50px;
 

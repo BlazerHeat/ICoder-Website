@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/bg/login_bg.jpg");
+    background-image: linear-gradient(var(--black-medium-opacity), var(--black-medium-opacity)), url("/images/bg/compressed/login_bg.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -14,7 +14,7 @@
 
 .login-page {
     width: 720px;
-    background: rgba(255, 255, 255, 1);
+    background: var(--white);
 
     display: flex;
     flex-direction: column;
@@ -70,7 +70,7 @@
 .login-btn {
     padding: .3em .7em;
     text-decoration: none;
-    color: white;
+    color: var(--white);
 
     width: 80%;
     max-width: 200px;
@@ -94,7 +94,7 @@
 }
 
 .login-btn i {
-    border-right: 2px solid rgba(255, 255, 255, 0.7);
+    border-right: 2px solid var(--white-high-opacity);
     padding-right: 5px;
 }
 
@@ -104,26 +104,27 @@
 }
 
 #github-login {
-    background: black;
+    background: var(--github-btn);
 }
 
 #google-login {
-    background: rgb(219,68,55);
+    background: var(--google-btn);
 }
 
 #facebook-login {
-    background: rgb(59,89,153);
+    background: var(--facebook-btn);
 }
 
 #homepage-btn {
     margin-right: auto;
     text-decoration: none;
+    color: var(--a-link);
 
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid var(--transparent);
     transition: border-bottom ease-in 0.1s;
 }
 #homepage-btn:hover {
-    border-bottom: 2px solid rgb(85,26,139);
+    border-bottom: 2px solid var(--a-link);
 }
 
 #homepage-btn i {

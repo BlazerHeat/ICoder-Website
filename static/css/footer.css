@@ -1,9 +1,9 @@
 footer {
     font-family: 'Poppins', sans-serif;
-    background: rgb(5,17,32);
+    background: var(--blackish-blue);
     width: 100%;
 
-    color: white;
+    color: var(--white);
     text-align: center;
     user-select: none;
 
@@ -25,7 +25,7 @@ footer {
 
     border: 0;
     height: 2px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, var(--transparent), var(--white-high-opacity), var(--transparent));
 }
 
 .social-links {
@@ -43,22 +43,22 @@ footer {
 
     font-size: 20px;
     text-decoration: none;
-    color: white;
+    color: var(--white);
 
     width: 40px;
     height: 40px;
     margin: 0 .5em;
 
-    border: 2px solid white;
+    border: 2px solid var(--white);
     border-radius: 1200px;
 
     transition: .2s ease-in-out;
 }
 
 .footer-link:hover {
-    background: white;
+    background: var(--white);
     color: black;
-    border: 2px solid rgba(100, 14, 231, 0.63);
+    border: 2px solid var(--purple-medium-opacity);
 }
 
 .copyright-text {
@@ -74,17 +74,17 @@ footer {
 }
 
 .quick-link {
-    color: white;
+    color: var(--white);
     margin: 0 .3em;
 
     transition: color .1s ease-in;
 }
 .quick-link:hover {
-    color: #0092ff;
+    color: var(--light-blue);
 }
 
 .bullet {
-    color: #0092ff;
+    color: var(--light-blue);
 }
 
 @media only screen and (max-width: 360px) {

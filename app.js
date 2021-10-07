@@ -25,6 +25,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const expressLayouts = require('express-ejs-layouts')
 const cookieSession = require("cookie-session");
+const compression = require('compression');
 const app = express();
 const compiler = require("./compiler");
 const PORT = parseInt(process.env.PORT, 10) || 3000;
@@ -45,6 +46,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(expressLayouts);
+app.use(compression());
 
 
 app.use(

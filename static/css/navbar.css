@@ -42,7 +42,12 @@ header {
 }
 
 .logo h1 {
-    margin-left: 10px;
+    background: linear-gradient(45deg, #ff8e44, #f91362, #35126a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.2em;
+    font-family: "Segoe Print", monospace;
 }
 
 .nav-list {

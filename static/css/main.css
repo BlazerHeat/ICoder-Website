@@ -1,4 +1,9 @@
 @font-face {
+    font-family: 'Segoe Print';
+    src: url("../fonts/segoepr.ttf") format('truetype');
+    font-display: swap;
+}
+@font-face {
     font-family: 'Ubuntu Mono';
     src: url("../fonts/UbuntuMono.woff2") format('woff2');
     font-display: swap;

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Segoe Print';
-    src: url("../fonts/segoepr.ttf") format('truetype');
+    src: url("../fonts/segoepr.woff2") format('woff2');
     font-display: swap;
 }
 @font-face {

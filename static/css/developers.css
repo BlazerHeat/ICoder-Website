@@ -17,19 +17,14 @@
     background-position: center center;
 }
 
-.head-container {
-    text-align: center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 3em;
-}
 
 .head-text {
     font-family: 'Ubuntu Mono', monospace;
     font-weight: bold;
+    text-align: center;
+    margin: 0 1em 1.5em;
+
+    font-size: 2.5em;
 }
 
 .rainbow_text_animated {
@@ -39,17 +34,6 @@
     color: transparent;
     animation: rainbow_animation 6s ease-in-out infinite;
     background-size: 400% 100%;
-}
-
-.typings {
-    font-size: 3em;
-}
-
-.typed-cursor {
-    animation: typedjsBlink 0.7s infinite;
-    font-size: 3em;
-    margin-left: 5px;
-    color: var(--white);
 }
 
 .cards-container {
@@ -136,28 +120,7 @@
     100%{background-position:0% 82%}
 }
 
-@media only screen and (max-width: 860px) {
-    .typings, .typed-cursor {
-        font-size: 2em;
-    }
-}
-
-@media only screen and (max-width: 580px) {
-    .typings, .typed-cursor {
-        font-size: 1.5em;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .typings, .typed-cursor {
-        font-size: 1.2em;
-    }
-}
-
 @media only screen and (max-width: 350px) {
-    .typings, .typed-cursor {
-        font-size: 1em;
-    }
     .btn-container {
         display: flex;
         flex-direction: column;

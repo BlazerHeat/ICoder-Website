@@ -1,17 +1,3 @@
-var options = {
-    strings: [
-        '"Meet us, Developers of iCoder..."',
-    ],
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 1250,
-    loop: true,
-    loopCount: Infinity,
-    smartBackspace: true,
-};
-
-new Typed(".typings", options);
-
 const swiper = new Swiper('.swiper', {
     centeredSlides: true,
     effect: "creative",

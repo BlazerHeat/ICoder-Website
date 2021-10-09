@@ -1,4 +1,4 @@
-const queAns = require('./database/models/queAns');
+const queAns = require('../database/models/queAns');
 const chalk = require('chalk');
 
 

@@ -1,14 +1,3 @@
-/////////////////////////////
-
-
-// TODO
-// OAUTH2
-// Database
-
-
-///////////////////////////////////
-
-
 //pre config
 require("dotenv").config();
 require("./database/connection").connect().catch(err => {
@@ -26,14 +15,14 @@ const passport = require("passport");
 const expressLayouts = require('express-ejs-layouts')
 const cookieSession = require("cookie-session");
 const compression = require('compression');
-const app = express();
 const compiler = require("./utils/compiler");
-const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 const authRoute = require('./routes/auth');
 const problemRoute = require('./routes/problem');
 const dashboardRoute = require('./routes/dashboard');
 
+const app = express();
+const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 //settings
 app.set("view engine", "ejs");
@@ -48,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(expressLayouts);
 app.use(compression());
 
-
+//cookie-session settings
 app.use(
     cookieSession({
       maxAge: config.Cookies_Life,
@@ -90,6 +79,10 @@ app.post("/", async (req, res) => {
     user: req.user,
     username: req.user ? req.user.displayName : "Anonymous",
   });
+});
+
+app.get('/developers', (req, res) => {
+  res.status(202).render('developers');
 });
 
 

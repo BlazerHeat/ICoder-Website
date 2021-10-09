@@ -1,0 +1,175 @@
+:root {
+    --swiper-navigation-size: 30px;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: linear-gradient(var(--black-medium-opacity), var(--black-medium-opacity)), url('/images/bg/compressed/developers_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.head-container {
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 3em;
+}
+
+.head-text {
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+}
+
+.rainbow_text_animated {
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+.typings {
+    font-size: 3em;
+}
+
+.typed-cursor {
+    animation: typedjsBlink 0.7s infinite;
+    font-size: 3em;
+    margin-left: 5px;
+    color: var(--white);
+}
+
+.cards-container {
+    width: 350px;
+    height: 100%;
+}
+
+.card {
+    font-family: Montserrat, sans-serif;
+
+    background: #231e39;
+    padding: 1em;
+
+    border-radius: 5px;
+
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,.75);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile img {
+    border-radius: 100%;
+    width: 50%;
+
+    outline: 5px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+.profile-name {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--pale);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.about{
+    margin-top: 14px;
+    text-align: center;
+    color: var(--pale);
+}
+
+.profile-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-container {
+    margin-top: 10px;
+}
+
+.msg-btn, .follow-btn{
+    background: var(--cyan-pale);
+    border: 1px solid var(--cyan-pale);
+    padding: 10px 25px;
+    color: var(--dark-blue);
+    border-radius: 3px;
+    font-family: Montserrat, sans-serif;
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+.follow-btn{
+    margin-left: 10px;
+    background: transparent;
+    color: var(--cyan-pale);
+    transition: color .2s ease-in, background .2s ease-in;
+}
+.follow-btn:hover{
+    color: var(--dark-blue);
+    background: var(--cyan-pale);
+}
+
+@keyframes rainbow_animation {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+@media only screen and (max-width: 860px) {
+    .typings, .typed-cursor {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .typings, .typed-cursor {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .head-text {
+        font-size: 1em;
+    }
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .follow-btn{
+        margin-left: 0;
+    }
+
+    .cards-container {
+        width: 200px;
+    }
+    .profile-name {
+        font-size: 1em;
+    }
+    .about {
+        font-size: 0.7em;
+    }
+}

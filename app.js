@@ -17,7 +17,6 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const expressLayouts = require('express-ejs-layouts')
 const cookieSession = require("cookie-session");
-import sslRedirect from 'heroku-ssl-redirect';
 const compression = require('compression');
 const compiler = require("./utils/compiler");
 const authRoute = require('./routes/auth');

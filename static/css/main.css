@@ -1,4 +1,9 @@
 @font-face {
+    font-family: 'OpenSans';
+    src: url("../fonts/OpenSans.woff2") format('woff2');
+    font-display: swap;
+}
+@font-face {
     font-family: 'Segoe Print';
     src: url("../fonts/segoepr.woff2") format('woff2');
     font-display: swap;

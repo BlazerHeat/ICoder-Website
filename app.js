@@ -5,6 +5,9 @@ require("./database/connection").connect().catch(err => {
 });
 require('./passport/passport');
 
+
+// require('./utils/queAnsManager');
+
 //components
 const chalk = require('chalk');
 const config = require('./config.json');
@@ -18,8 +21,9 @@ const compression = require('compression');
 const compiler = require("./utils/compiler");
 
 const authRoute = require('./routes/auth');
-const problemRoute = require('./routes/problem');
 const dashboardRoute = require('./routes/dashboard');
+const questionsRoute = require('./routes/questions');
+const prepareRoute = require('./routes/prepare');
 
 const app = express();
 const PORT = parseInt(process.env.PORT, 10) || 3000;
@@ -49,8 +53,9 @@ app.use(passport.session(null));
 
 //routers
 app.use('/auth', authRoute);
-app.use('/problem', problemRoute);
 app.use('/dashboard', dashboardRoute);
+app.use('/questions', questionsRoute);
+app.use('/prepare', prepareRoute);
 
 //main routes
 app.get("/", async (req, res) => {
@@ -63,7 +68,19 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.post("/", async (req, res) => {
+
+
+app.get("/test", async (req, res) => {
+  res.status(202);
+  res.render("test", {
+    title: "Test",
+    output: "",
+    user: req.user,
+    username: req.user ? req.user.displayName : "Anonymous",
+  });
+});
+
+app.post("/test", async (req, res) => {
   let language = req.body.language;
   let script = req.body.script;
   let input = req.body.input || "";
@@ -73,8 +90,8 @@ app.post("/", async (req, res) => {
     output = err;
   }
   res.status(202);
-  res.render("index", {
-    title: "Home",
+  res.render("test", {
+    title: "Test",
     output,
     user: req.user,
     username: req.user ? req.user.displayName : "Anonymous",
@@ -90,7 +107,7 @@ app.get('/developers', (req, res) => {
 //Not found! Route (Should be bottom of hierarchy)
 app.get("*", (req, res) => {
   res.status(404);
-  res.render("error", { title: "Error", statusCode: res.statusCode, errorText: null, errorDesc: null });
+  res.render("error", { title: "Error", statusCode: res.statusCode, errorText: null, errorDesc: null, user: req.user });
 });
 //------------------------------------------------------
 

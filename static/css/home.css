@@ -1,0 +1,113 @@
+.main {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/images/bg/compressed/developers_bg.jpg");
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    text-align: center;
+}
+
+.hero-text {
+    font-size: 5em;
+}
+
+.typings-conatiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typings {
+    font-size: 1.7em;
+    font-style: italic;
+}
+
+.typed-cursor {
+    animation: blink 1.25s ease-in-out infinite;
+    font-size: 1.7em;
+    margin-left: 5px;
+}
+
+.down-arrow {
+    position: absolute;
+    width: 50px;
+
+    bottom: 20px;
+    filter: grayscale(1) invert(1);
+
+    animation: up-down 0.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite alternate;
+}
+
+.hero-btn {
+    text-decoration: none;
+    color: var(--green);
+    font-size: 1.6em;
+    padding: 0.1em 0.5em;
+    margin-top: 20px;
+
+    border: 0.09em solid var(--green);
+    border-radius: 1200px;
+    transition: 0.15s ease-in-out;
+}
+.hero-btn:hover {
+    color: black;
+    background: var(--light-green);
+}
+
+@keyframes up-down {
+    0% {
+        bottom: 20px;
+    }
+    100% {
+        bottom: 100px;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 910px) {
+    .hero-text {
+        font-size: 3em;
+        margin: 0 1em;
+    }
+
+    .typings {
+        font-size: 1.2em;
+    }
+
+    .typed-cursor {
+        font-size: 1.2em;
+    }
+
+    .down-arrow {
+        width: 50px;
+        bottom: 20px;
+    }
+
+    .hero-btn {
+        font-size: 1.2em;
+    }
+}

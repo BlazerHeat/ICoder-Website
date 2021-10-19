@@ -6,7 +6,10 @@ const queAnsSchema = new mongoose.Schema({
     description: String,
     difficulty: Number,
     maxScore: Number,
-    question: String,
+    question: {
+        type: String,
+        default: null
+    },
     stdin: String,
     stdout: String,
 

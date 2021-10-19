@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/questions.css">
+<div class="container">
+    <div class="header">
+        <h1><%= data.title %></h1>
+        <a href="/prepare" class="header-link"><i class="fas fa-angle-left"></i>Prepare</a>
+    </div>
+    <div class="questions-container">
+        <div class="questions">
+            <% if(questions.length > 0) { %>
+            <% questions.forEach(question => { %>
+                <div class="question">
+                    <a href=<%= `/questions/${question.lang}/${question.id}` %> class="question-link">
+                        <h2 class="title"><%- question.head %></h2>
+                        <p><span style="color: var(--green);"><%= question.difficulty === 0  ? 'Easy' : question.difficulty === 1 ? 'Medium' : 'Hard' %>,</span> Max Score: <span style="color: var(--google-btn)"><%- question.maxScore %></span></p>
+                        <a href=<%= `/questions/${question.lang}/${question.id}` %> class="solve-challenge">Solve Challenge</a>
+                    </a>
+                </div>
+            <% }); %>
+            <% } else { %>
+                <div class="not-found">
+                    <p>No matching questions found.</p>
+                </div>
+            <% } %>
+        </div>
+        <div class="questions-form">
+            <form method="get" action="/questions/<%= language %>">
+                <div class="filter-group">
+                    <p>STATUS</p>
+                    <label><input type="checkbox" name="status" value="solved" <%= questionStatus[0] ? "checked" : '' %>> Solved</label><br/>
+                    <label><input type="checkbox" name="status" value="unsolved" <%= questionStatus[1] ? "checked" : '' %>> Unsolved</label><br/>
+                </div>
+                <hr />
+                <div class="filter-group">
+                    <p>Difficulty</p>
+                    <label><input type="checkbox" name="difficulty" value="easy" <%= difficulty[0] ? "checked" : '' %>> Easy</label><br/>
+                    <label><input type="checkbox" name="difficulty" value="medium" <%= difficulty[1] ? "checked" : '' %>> Medium</label><br/>
+                    <label><input type="checkbox" name="difficulty" value="hard" <%= difficulty[2] ? "checked" : '' %>> Hard</label><br/>
+                </div>
+                <button type="submit" class="apply-btn hide">Apply</button>
+            </form>
+        </div>
+    </div>
+    <div class="" id="filter-icon">
+        <i class="fas fa-filter"></i>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/questions.js"></script>

@@ -1,0 +1,94 @@
+<%- include('partials/codemirrorHead') %>
+<div style="padding-top: 100px;s">
+    <% if(username == "Anonymous")  { %>
+        <a href="/auth">Login</a>
+    <% } else { %>
+        <a href="/auth/logout">Logout</a>
+    <% } %>
+    <a href="/problem">Problem page</a>
+    <h1>Welcome! <%= username %></h1>
+
+    <form action="/" method="post" style="font-size: 2em">
+        <label>
+            Language:
+            <select id="lang" name="language" style="font-size: 1em">
+                <option value="nodejs">Javascript</option>
+                <option value="python3">Python</option>
+                <option value="java">Java</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+            </select>
+        </label>
+
+        <label>
+            Theme:
+            <select id="theme" name="theme" style="font-size: 1em">
+                <option value="material-darker">Darker</option>
+                <option value="material-ocean">Ocean</option>
+                <option value="material-palenight">Palenight</option>
+                <option value="monokai">Monokai</option>
+                <option value="darcula" selected>Darcula</option>
+                <option value="eclipse">Eclipse</option>
+            </select>
+        </label>
+
+        <br />
+        <br />
+
+        <label>
+            Script:
+            <textarea id="script" name="script"></textarea>
+        </label>
+        <label>
+            Input:
+            <textarea style="vertical-align: top; font-size: 1.5em;" cols="30" rows="2" name="input" value="" placeholder="Type Input here"></textarea>
+        </label>
+
+        <br />
+        <br />
+
+        <button type="submit" style="font-size: 1em">Compile</button>
+    </form>
+    <h1>Output: <%= output %></h1>
+</div>
+    <script>
+       const lang = document.getElementById('lang');
+       const theme = document.getElementById('theme');
+       const editor = CodeMirror.fromTextArea(document.getElementById('script'), {
+           mode: getMode(lang.value),
+           theme: theme.value,
+           lineNumbers: true,
+           lineWrapping: true,
+           autoCloseBrackets: true,
+           matchBrackets: true,
+           extraKeys: {
+               "F11": function(cm) {
+                   cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+               },
+               "Esc": function(cm) {
+                   if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+               }
+           }
+       });
+
+       lang.addEventListener('change', () => {
+           let newMode = getMode(lang.value);
+           editor.setOption("mode", newMode)
+       });
+       theme.addEventListener('change', () => {
+          editor.setOption("theme", theme.value);
+       });
+
+       function getMode(value){
+           if(value === 'nodejs')
+               return 'javascript';
+           else if(value === 'python3')
+               return 'python';
+           else if(value === 'java')
+               return 'text/x-java';
+           else if(value === 'cpp')
+               return 'text/x-c++src';
+           else if(value === 'c')
+               return 'text/x-csrc';
+       }
+    </script>

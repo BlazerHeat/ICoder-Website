@@ -9,23 +9,31 @@
 
             user-select: none;
         }
+        .container {
+            padding-top: 100px;
+        }
     </style>
-
-<h1><%- title %></h1>
-<h2>Question:</h2>
-<p><%- question %></p>
-<h2>Input Format:</h2>
-<p><%- inputFormat %></p>
-<h2>Constraints:</h2>
-<p><%- constraints %></p>
-<h2>Output Format:</h2>
-<p><%- outputFormat %></p>
-<h2>Sample Input:</h2>
-<p><%- sampleInput %></p>
-<h2>Sample Output:</h2>
-<p><%- sampleOutput %></p>
-<h2>Explanation:</h2>
-<p><%- explanation %></p>
+<div class="container">
+    <h1><%- title %></h1>
+    <h2>Desc:</h2>
+    <p><%- description %></p>
+    <% if(question) { %>
+        <h2>Question:</h2>
+        <p><%- question %></p>
+    <% } %>
+    <h2>Input Format:</h2>
+    <p><%- inputFormat %></p>
+    <h2>Output Format:</h2>
+    <p><%- outputFormat %></p>
+    <h2>Constraints:</h2>
+    <p><%- constraints %></p>
+    <h2>Sample Input:</h2>
+    <p><%- sampleInput %></p>
+    <h2>Sample Output:</h2>
+    <p><%- sampleOutput %></p>
+    <h2>Explanation:</h2>
+    <p><%- explanation %></p>
+</div>
 
 <form action="/problem" method="post" style="font-size: 2em">
 

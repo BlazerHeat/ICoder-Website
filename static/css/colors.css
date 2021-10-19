@@ -1,5 +1,6 @@
 :root {
     --white: #FFF;
+    --white2: #f3f7f7;
     --white-high-opacity: rgba(255, 255, 255, 0.7);
     --black: #000;
     --black-high-opacity: rgba(0, 0, 0, 0.8);
@@ -16,6 +17,7 @@
     --purple: rgb(100, 14, 231);
     --purple-medium-opacity: rgba(100, 14, 231, 0.63);
     --a-link: rgb(85,26,139);
+    --green: #1ba94c;
     --light-green: #75ec4a;
     --transparent: rgba(0, 0, 0, 0);
     --github-btn: #000;

@@ -17,10 +17,9 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const expressLayouts = require('express-ejs-layouts')
 const cookieSession = require("cookie-session");
-const sslRedirect = require('heroku-ssl-redirect');
+import sslRedirect from 'heroku-ssl-redirect';
 const compression = require('compression');
 const compiler = require("./utils/compiler");
-
 const authRoute = require('./routes/auth');
 const dashboardRoute = require('./routes/dashboard');
 const questionsRoute = require('./routes/questions');
@@ -41,7 +40,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(expressLayouts);
 app.use(compression());
-app.use(sslRedirect());
 
 //cookie-session settings
 app.use(

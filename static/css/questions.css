@@ -6,7 +6,7 @@
 }
 
 .header {
-    height: 100px;
+    padding: 1em;
     background: var(--white);
 
     display: flex;
@@ -80,6 +80,7 @@
     color: var(--google-btn);
     margin: 10px auto;
     padding: 30px;
+    text-align: center;
 
     width: 50%;
     display: flex;
@@ -207,8 +208,8 @@
     .questions-container {
         display: block;
     }
-    .questions {
-
+    .not-found {
+        width: 100%;
     }
 
     .questions-form form {
@@ -244,4 +245,13 @@
 
 .open-questions-form {
     left: 0;
+}
+
+@media only screen and (max-width: 515px) {
+    .solve-challenge {
+        display: none;
+    }
+    .question-link {
+        text-align: center;
+    }
 }

@@ -1,0 +1,93 @@
+<%- include('partials/codemirrorHead') %>
+
+    <style>
+        p {
+            background: #f3f7f7;
+            padding: 1em;
+            display: inline-block;
+            border-radius: 3px;
+
+            user-select: none;
+        }
+        .container {
+            padding-top: 100px;
+        }
+    </style>
+<div class="container">
+    <h1><%- title %></h1>
+    <h2>Desc:</h2>
+    <p><%- description %></p>
+    <% if(question) { %>
+        <h2>Question:</h2>
+        <p><%- question %></p>
+    <% } %>
+    <h2>Input Format:</h2>
+    <p><%- inputFormat %></p>
+    <h2>Output Format:</h2>
+    <p><%- outputFormat %></p>
+    <h2>Constraints:</h2>
+    <p><%- constraints %></p>
+    <h2>Sample Input:</h2>
+    <p><%- sampleInput %></p>
+    <h2>Sample Output:</h2>
+    <p><%- sampleOutput %></p>
+    <h2>Explanation:</h2>
+    <p><%- explanation %></p>
+</div>
+
+<form action=<%= `/questions/${lang}/${id}`%> method="post" style="font-size: 2em">
+
+    <label>
+        Theme:
+        <select id="theme" name="theme" style="font-size: 1em">
+            <option value="material-darker">Darker</option>
+            <option value="material-ocean" selected>Ocean</option>
+            <option value="material-palenight">Palenight</option>
+            <option value="monokai">Monokai</option>
+            <option value="darcula">Darcula</option>
+            <option value="eclipse">Eclipse</option>
+        </select>
+    </label>
+
+    <br />
+    <br />
+
+    <label>
+        Script:
+        <textarea id="script" name="script"></textarea>
+    </label>
+
+    <button type="submit" style="font-size: 1em">Submit</button>
+
+    <% if(message) { %>
+    <h3> <%- message %> </h3>
+    <% } %>
+
+</form>
+
+<script>
+    const lang = document.getElementById('lang');
+    const theme = document.getElementById('theme');
+    const editor = CodeMirror.fromTextArea(document.getElementById('script'), {
+        mode: 'text/x-java',
+        theme: theme.value,
+        lineNumbers: true,
+        lineWrapping: true,
+        autoCloseBrackets: true,
+        matchBrackets: true,
+        extraKeys: {
+            "F11": function(cm) {
+                cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+            },
+            "Esc": function(cm) {
+                if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+            }
+        }
+    });
+    editor.setSize(null, "500");
+    editor.setValue(<%- JSON.stringify(boilerplate) %>);
+
+    theme.addEventListener('change', () => {
+        editor.setOption("theme", theme.value);
+    });
+</script>

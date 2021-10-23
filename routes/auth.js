@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-
+const antiAuthCheck = require('../utils/antiauthcheck');
 
 const successRedirect = '/';
+
+
+router.use(antiAuthCheck);
 
 router.get('/', (req, res) => {
     res.status(202);

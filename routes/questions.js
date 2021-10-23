@@ -51,11 +51,11 @@ async function getQuestions(lang, diff){
         return queAns.find({lang, difficulty: 2 });
 
     if(diff[0] && diff[1] && !diff[2])
-        return queAns.find({lang, difficulty: { $gte: 0, $lte: 1 } });
+        return queAns.find({lang, difficulty: { $ne: 2 } });
     if(!diff[0] && diff[1] && diff[2])
-        return queAns.find({lang, difficulty: { $gte: 1 } });
+        return queAns.find({lang, difficulty: { $ne: 0 } });
     if(diff[0] && !diff[1] && diff[2])
-        return queAns.find({lang, difficulty: { $gte: 0, $lte: 2, $ne: 1 } });
+        return queAns.find({lang, difficulty: { $ne: 1 } });
 }
 
 router.get('/', (req, res) => {
@@ -128,8 +128,17 @@ router.post('/:lang/:id', async (req, res) => {
     let data = await fetchData(req.params.id);
 
     data.boilerplate = req.body.script;
+    data.themeName = req.body.theme;
     const { boilerplate: script, lang, stdin, stdout } = data;
     const { output, err } = await compiler(lang, script, stdin);
+
+    const result = {
+        success: false,
+        output: reformat(output),
+        stdin: reformat(stdin),
+        stdout: reformat(stdout)
+    }
+
 
     if(err){
         res.status(500);
@@ -138,13 +147,16 @@ router.post('/:lang/:id', async (req, res) => {
     }
 
 
-    if(output === stdout || output + '\n' === stdout)
-        data.message = "Correct Code!";
-    else
-        data.message = "Incorrect Code!";
+    if(output === stdout || output + '\n' === stdout){
+        result.success = true;
+        result.message = "Congratulations!";
+    }
+    else {
+        result.message = "Wrong Answer!";
+    }
 
     res.status(202);
-    res.render("problem", data);
+    res.render("problem", { user: req.user, ...data, result });
 });
 
 module.exports = router;

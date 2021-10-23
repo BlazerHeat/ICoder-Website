@@ -19,9 +19,6 @@ module.exports = async (language, script, stdin = "") => {
     });
 
     if(!res)
-        return { err: "No Response from API." }
-    if(res.data.output ? res.data.output.toString().startsWith('\n') : res.data.output)
-        return { output: res.data, err: "Error in Code." }
-
+        return { err: "No Response from API." };
     return res.data;
 };

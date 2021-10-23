@@ -54,8 +54,8 @@
 .hero-btn {
     text-decoration: none;
     color: var(--green);
-    font-size: 1.6em;
-    padding: 0.1em 0.5em;
+    font-size: 1.4em;
+    padding: 0.05em 0.5em;
     margin-top: 20px;
 
     border: 0.09em solid var(--green);
@@ -64,7 +64,7 @@
 }
 .hero-btn:hover {
     color: black;
-    background: var(--light-green);
+    background: var(--green);
 }
 
 @keyframes up-down {

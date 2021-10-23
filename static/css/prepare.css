@@ -63,3 +63,20 @@
     border-bottom: 2px solid var(--green);
 }
 
+@media only screen and (max-width: 575px) {
+    .cards {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .card img {
+        width: 90px;
+    }
+    .card-title {
+        font-size: .6em;
+    }
+    .card a {
+        font-size: .5em;
+    }
+}

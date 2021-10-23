@@ -1,93 +1,97 @@
 <%- include('partials/codemirrorHead') %>
+<link rel="stylesheet" href="/css/problem.css">
 
-    <style>
-        p {
-            background: #f3f7f7;
-            padding: 1em;
-            display: inline-block;
-            border-radius: 3px;
-
-            user-select: none;
-        }
-        .container {
-            padding-top: 100px;
-        }
-    </style>
 <div class="container">
-    <h1><%- title %></h1>
-    <h2>Desc:</h2>
-    <p><%- description %></p>
-    <% if(question) { %>
-        <h2>Question:</h2>
-        <p><%- question %></p>
-    <% } %>
-    <h2>Input Format:</h2>
-    <p><%- inputFormat %></p>
-    <h2>Output Format:</h2>
-    <p><%- outputFormat %></p>
-    <h2>Constraints:</h2>
-    <p><%- constraints %></p>
-    <h2>Sample Input:</h2>
-    <p><%- sampleInput %></p>
-    <h2>Sample Output:</h2>
-    <p><%- sampleOutput %></p>
-    <h2>Explanation:</h2>
-    <p><%- explanation %></p>
+    <div class="header">
+        <h1><%- title %></h1>
+        <p><span style="color: var(--green);"><%= difficulty === 0  ? 'Easy' : difficulty === 1 ? 'Medium' : 'Hard' %>,</span> Max Score: <span style="color: var(--google-btn)"><%- maxScore %></span></p>
+        <a href="/questions/java" class="header-link"><i class="fas fa-angle-left"></i>Questions</a>
+    </div>
+    <div class="page">
+        <div class="question-arr">
+            <h2>Description</h2>
+            <p><%- description %></p>
+        </div>
+        <% if(question) { %>
+            <div class="question-arr">
+                <h2>Question</h2>
+                <p><%- question %></p>
+            </div>
+        <% } %>
+
+        <div class="question-arr">
+            <h2>Input Format</h2>
+            <p><%- inputFormat %></p>
+        </div>
+        <div class="question-arr">
+            <h2>Output Format</h2>
+            <p><%- outputFormat %></p>
+        </div>
+        <div class="question-arr">
+            <h2>Constraints</h2>
+            <p><%- constraints %></p>
+        </div>
+        <div class="question-arr">
+            <h2>Sample Input</h2>
+            <p><%- sampleInput %></p>
+        </div>
+        <div class="question-arr">
+            <h2>Sample Output</h2>
+            <p><%- sampleOutput %></p>
+        </div>
+        <div class="question-arr">
+            <h2>Explanation</h2>
+            <p><%- explanation %></p>
+        </div>
+    </div>
+    <form class="page" action=<%= `/questions/${lang}/${id}`%> method="POST">
+        <label class="form-label">
+            Theme:
+            <select id="theme" name="theme" style="font-size: 1em">
+                <option value="material-ocean">Ocean</option>
+                <option value="darcula" selected>Darcula</option>
+                <option value="eclipse">Eclipse</option>
+            </select>
+        </label>
+
+        <span id="fullscreen-notice">Press F11 to toggle full-screen mode</span>
+
+        <br />
+        <br />
+
+        <textarea id="script" name="script"></textarea>
+
+        <button type="submit" id="submit-code">Submit Code</button>
+
+        <% if(typeof result !== 'undefined') { %>
+        <div class="result">
+            <h3> <%- result.message %> </h3>
+            <div class="result-arr">
+                <h2>Input(stdin)</h2>
+                <p><%- result.stdin %></p>
+            </div>
+            <div class="result-arr">
+                <h2>Expected output</h2>
+                <p><%- result.stdout %></p>
+            </div>
+            <div class="result-arr">
+                <h2>Your output(stdout)</h2>
+                <p><%- result.output %></p>
+            </div>
+        </div>
+        <% } %>
+
+    </form>
 </div>
 
-<form action="/problem" method="post" style="font-size: 2em">
-
-    <label>
-        Theme:
-        <select id="theme" name="theme" style="font-size: 1em">
-            <option value="material-darker">Darker</option>
-            <option value="material-ocean" selected>Ocean</option>
-            <option value="material-palenight">Palenight</option>
-            <option value="monokai">Monokai</option>
-            <option value="darcula">Darcula</option>
-            <option value="eclipse">Eclipse</option>
-        </select>
-    </label>
-
-    <br />
-    <br />
-
-    <label>
-        Script:
-        <textarea id="script" name="script"></textarea>
-    </label>
-
-    <button type="submit" style="font-size: 1em">Submit</button>
-
-    <% if(message) { %>
-    <h3> <%- message %> </h3>
-    <% } %>
-
-</form>
-
-<script>
-    const lang = document.getElementById('lang');
-    const theme = document.getElementById('theme');
-    const editor = CodeMirror.fromTextArea(document.getElementById('script'), {
-        mode: 'text/x-java',
-        theme: theme.value,
-        lineNumbers: true,
-        lineWrapping: true,
-        autoCloseBrackets: true,
-        matchBrackets: true,
-        extraKeys: {
-            "F11": function(cm) {
-                cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-            },
-            "Esc": function(cm) {
-                if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-            }
-        }
-    });
-    editor.setSize(null, "500");
+<script type="text/javascript" src="/js/problem.js">
+</script>
+<script type="text/javascript">
     editor.setValue(<%- JSON.stringify(boilerplate) %>);
 
-    theme.addEventListener('change', () => {
-        editor.setOption("theme", theme.value);
-    });
+    <% if(typeof themeName !== "undefined") { %>
+        const themeName = "<%= themeName %>";
+        editor.setOption("theme", themeName);
+        theme.value = themeName;
+    <% } %>
 </script>

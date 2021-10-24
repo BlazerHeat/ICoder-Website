@@ -28,16 +28,18 @@ passport.deserializeUser((id, cb) => {
 
 
 passport.use("google", new GoogleStrategy(GOOGLE, (accessToken, refreshToken, profile, cb) => {
-    user = { id: profile.id,  displayName: profile.displayName, provider: 'google' };
+    const displayPic = profile.photos.length !== 0 ? profile.photos[0].value : "";
+    user = { id: profile.id,  displayName: profile.displayName, provider: 'google', displayPic };
     updateOrCreate(user, cb);
 }));
 
 passport.use("github", new GithubStrategy(GITHUB, (accessToken, refreshToken, profile, cb) => {
-    user = { id: profile.id, displayName: profile.displayName, provider: 'github' };
+    const displayPic = profile.photos.length !== 0 ? profile.photos[0].value : "";
+    user = { id: profile.id, displayName: profile.username, provider: 'github', displayPic };
     updateOrCreate(user, cb);
 }));
 
 passport.use("facebook", new FacebookStrategy(FACEBOOK, (accessToken, refreshToken, profile, cb) => {
-    user = { id: profile.id, displayName: profile.displayName, provider: 'facebook' };
+    user = { id: profile.id, displayName: profile.displayName, provider: 'facebook', displayPic: "" };
     updateOrCreate(user, cb);
 }));

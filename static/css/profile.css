@@ -20,6 +20,11 @@
     user-select: none;
 }
 
+.profile-pic {
+    width: 100%;
+    border-radius: 50%;
+}
+
 .attribute {
     font-family: "Poppins", serif;
     margin: 10px 10px 10px 2em;

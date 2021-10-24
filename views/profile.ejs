@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="page">
-        <img src="/images/developers/generic-male.jpg">
+        <img src="<%= user.displayPic === "" ? "/images/developers/generic-male.jpg" : user.displayPic %>" alt="profile" class="profile-pic">
         <div class="about">
             <div class="attribute">
                 <h3>ID</h3>
@@ -35,5 +35,6 @@
                 <p><%= user.cppPoints %></p>
             </div>
         </div>
+        <a href="/auth/logout">Logout</a>
     </div>
 </div>

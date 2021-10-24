@@ -103,6 +103,12 @@
         theme.value = themeName;
     <% } %>
 
+    <% if(scrollToResult) { %>
+        const result = document.querySelector('.result');
+        result.scrollIntoView({ behavior: 'auto' });
+    <% } %>
+
+
     function getMode(value){
         switch (value){
             case 'python3':

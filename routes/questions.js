@@ -140,7 +140,7 @@ router.get('/:lang/:id', async (req, res) => {
     const data = await fetchData(req.params.id);
 
     res.status(202);
-    res.render("problem", { user: req.user, ...data });
+    res.render("problem", { user: req.user, ...data, scrollToResult: false });
 });
 router.post('/:lang/:id', async (req, res) => {
     const user = req.user;
@@ -182,7 +182,7 @@ router.post('/:lang/:id', async (req, res) => {
     }
 
     res.status(202);
-    res.render("problem", { user, ...data, result, alreadySolved });
+    res.render("problem", { user, ...data, result, alreadySolved, scrollToResult: true });
 });
 
 module.exports = router;

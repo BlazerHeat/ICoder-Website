@@ -1,4 +1,6 @@
 :root {
+    --bg-color: #e7eeef;
+    --bg-color2: #f3f7f7;
     --white: #FFF;
     --white2: #f3f7f7;
     --white-high-opacity: rgba(255, 255, 255, 0.7);
@@ -6,6 +8,7 @@
     --black-high-opacity: rgba(0, 0, 0, 0.8);
     --black-medium-opacity: rgba(0, 0, 0, 0.6);
     --gray: #444444;
+    --gray-fonts: #576871;
     --light-blue: #0078f2;
     --light-blue-high-opacity: rgba(0, 120, 242, 0.8);
     --blue: #005fbf;

@@ -3,9 +3,9 @@ const authCheck = require('../utils/authcheck');
 
 router.use(authCheck);
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
    res.status(202);
-   res.render("dashboard", { title: 'Dashboard', user: req.user });
+   res.render("profile", { title: 'Profile', user: req.user });
 });
 
 module.exports = router;

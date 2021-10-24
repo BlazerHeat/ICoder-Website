@@ -118,6 +118,21 @@
     padding: .5em .7em;
 }
 
+.solved-challenge {
+    text-decoration: none;
+    color: var(--green);
+
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-color: transparent;
+    border: 1px solid var(--green);
+    border-radius: 3px;
+    padding: .5em .7em;
+}
+
 .question-link {
     text-decoration: none;
     color: var(--black);
@@ -248,7 +263,7 @@
 }
 
 @media only screen and (max-width: 515px) {
-    .solve-challenge {
+    .solve-challenge, .solved-challenge {
         display: none;
     }
     .question-link {

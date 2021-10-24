@@ -20,7 +20,7 @@ const cookieSession = require("cookie-session");
 const compression = require('compression');
 const compiler = require("./utils/compiler");
 const authRoute = require('./routes/auth');
-const dashboardRoute = require('./routes/dashboard');
+const profileRoute = require('./routes/profile');
 const questionsRoute = require('./routes/questions');
 const prepareRoute = require('./routes/prepare');
 
@@ -52,7 +52,7 @@ app.use(passport.session(null));
 
 //routers
 app.use('/auth', authRoute);
-app.use('/dashboard', dashboardRoute);
+app.use('/profile', profileRoute);
 app.use('/questions', questionsRoute);
 app.use('/prepare', prepareRoute);
 

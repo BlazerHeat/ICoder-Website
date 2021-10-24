@@ -94,7 +94,7 @@ header {
     color: var(--black) !important;
 }
 
-#dashboard-btn {
+#profile-btn {
     border: 2px solid var(--cyan);
     color: var(--cyan);
     border-radius: 3px;
@@ -105,7 +105,7 @@ header {
 
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color ease-in 0.1s, background ease-in 0.1s;
 }
-#dashboard-btn:hover, .active-dashboard-btn {
+#profile-btn:hover, .active-profile-btn {
     background: var(--cyan) !important;
     color: var(--black) !important;
 }

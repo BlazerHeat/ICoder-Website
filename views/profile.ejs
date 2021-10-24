@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/css/profile.css">
+
+<div class="container">
+    <div class="page">
+        <img src="/images/developers/generic-male.jpg">
+        <div class="about">
+            <div class="attribute">
+                <h3>ID</h3>
+                <p><%= user.id %></p>
+            </div>
+            <div class="attribute">
+                <h3>Username</h3>
+                <p><%= user.displayName %></p>
+            </div>
+            <div class="attribute">
+                <h3>Provider</h3>
+                <p><%= user.provider.toUpperCase() %></p>
+            </div>
+            <div class="attribute">
+                <h3>Total solved</h3>
+                <p><%= user.solved.length %></p>
+            </div>
+        </div>
+        <div class="points">
+            <div class="attribute">
+                <h3 style="color: #634533;">Java Points</h3>
+                <p><%= user.javaPoints %></p>
+            </div>
+            <div class="attribute">
+                <h3 style="color: #FFD43B;">Python Points</h3>
+                <p><%= user.pythonPoints %></p>
+            </div>
+            <div class="attribute">
+                <h3 style="color: #044F88;">C++ Points</h3>
+                <p><%= user.cppPoints %></p>
+            </div>
+        </div>
+    </div>
+</div>

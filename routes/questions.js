@@ -1,4 +1,5 @@
 const queAns = require('../database/models/queAns');
+const users = require('../database/models/user');
 const router = require('express').Router();
 const authCheck = require('../utils/authcheck');
 const compiler = require("../utils/compiler");
@@ -57,6 +58,23 @@ async function getQuestions(lang, diff){
     if(diff[0] && !diff[1] && diff[2])
         return queAns.find({lang, difficulty: { $ne: 1 } });
 }
+function filterQuestions(questions, status, user){
+    if(status[0] && status[1]) {
+        questions.filter(x => user.solved.includes(x.id)).forEach(x => {
+            x.solved = true;
+        });
+        return questions;
+    }
+    else if(status[0]){
+        questions = questions.filter(x => user.solved.includes(x.id));
+        questions.forEach(x => {
+            x.solved = true;
+        });
+        return questions;
+    }
+    else if(status[1])
+        return questions.filter(x => !user.solved.includes(x.id));
+}
 
 router.get('/', (req, res) => {
     res.status(302);
@@ -66,24 +84,25 @@ router.get('/:lang', async (req, res) => {
    const lang = req.params.lang;
    const {status, difficulty} = getFormValues(req.query.status, req.query.difficulty);
 
-   const questions = await getQuestions(lang, difficulty);
+   const questions = filterQuestions(await getQuestions(lang, difficulty), status, req.user);
 
-   const data = {};
+
+   let title;
    switch (lang){
        case 'java':
-           data.title = 'JAVA';
+           title = 'JAVA';
            break;
-       case 'python':
-           data.title = 'PYTHON';
+       case 'python3':
+           title = 'PYTHON';
            break;
        case 'cpp':
-           data.title = 'C++';
+           title = 'C++';
            break;
    }
 
 
    res.status(202);
-   res.render('questions', { title: data.title, user: req.user, questionStatus: status, difficulty, language: lang, data, questions });
+   res.render('questions', { title, user: req.user, questionStatus: status, difficulty, language: lang, questions });
 });
 
 
@@ -124,7 +143,7 @@ router.get('/:lang/:id', async (req, res) => {
     res.render("problem", { user: req.user, ...data });
 });
 router.post('/:lang/:id', async (req, res) => {
-
+    const user = req.user;
     let data = await fetchData(req.params.id);
 
     data.boilerplate = req.body.script;
@@ -146,17 +165,24 @@ router.post('/:lang/:id', async (req, res) => {
         return;
     }
 
-
+    let alreadySolved = false;
     if(output === stdout || output + '\n' === stdout){
         result.success = true;
         result.message = "Congratulations!";
+
+        alreadySolved = user.solved.includes(data.id);
+        if(!alreadySolved){
+            user.javaPoints += data.maxScore;
+            user.solved.push(req.params.id);
+            await users.findOneAndUpdate({ id: user.id }, { javaPoints: user.javaPoints, solved: user.solved });
+        }
     }
     else {
         result.message = "Wrong Answer!";
     }
 
     res.status(202);
-    res.render("problem", { user: req.user, ...data, result });
+    res.render("problem", { user, ...data, result, alreadySolved });
 });
 
 module.exports = router;

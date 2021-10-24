@@ -1,6 +1,5 @@
 const theme = document.getElementById('theme');
 const editor = CodeMirror.fromTextArea(document.getElementById('script'), {
-    mode: 'text/x-java',
     theme: theme.value,
     lineNumbers: true,
     lineWrapping: true,

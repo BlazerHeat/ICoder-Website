@@ -16,10 +16,9 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    solved: {
-        type: Array,
-        default: []
-    }
+    solved: [{
+        type: String
+    }]
 });
 
 module.exports = mongoose.model("users", UserSchema);

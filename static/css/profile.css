@@ -1,0 +1,35 @@
+.container {
+    min-height: 100vh;
+    background: var(--bg-color);
+    padding-top: 81px;
+    padding-bottom: 1em;
+}
+
+.page {
+    position: relative;
+    background: var(--white);
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.2);
+
+    width: 90%;
+    max-width: 1000px;
+    margin: 1em auto;
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.5fr;
+    user-select: none;
+}
+
+.attribute {
+    font-family: "Poppins", serif;
+    margin: 10px 10px 10px 2em;
+}
+.attribute h3 {
+    color: var(--cyan-pale);
+}
+.attribute p {
+    display: inline-block;
+    background: var(--bg-color);
+    border-radius: 2px;
+    padding: 5px 7px;
+}

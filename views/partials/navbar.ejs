@@ -19,7 +19,7 @@
             <li class="list-item">
 
                 <% if(typeof user !== "undefined") { %>
-                    <a href="/dashboard" class="nav-link <% if(typeof title !== "undefined" && title === 'Dashboard') { %><%= "active-dashboard-btn" %> <% } %>" id="dashboard-btn">
+                    <a href="/profile/<%= user.id %>" class="nav-link <% if(typeof title !== "undefined" && title === 'Profile') { %><%= "active-profile-btn" %> <% } %>" id="profile-btn">
                         <%= user.displayName.split(" ")[0] %>
                     </a>
                 <% } else { %>

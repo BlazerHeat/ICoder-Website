@@ -89,13 +89,15 @@
 }
 
 .btn-container {
-    margin-top: 10px;
+    margin-top: 22px;
+    margin-bottom: 10px;
 }
 
 .msg-btn, .follow-btn{
+    text-decoration: none;
     background: var(--cyan-pale);
     border: 1px solid var(--cyan-pale);
-    padding: 10px 25px;
+    padding: .7em 1em;
     color: var(--dark-blue);
     border-radius: 3px;
     font-family: Montserrat, sans-serif;

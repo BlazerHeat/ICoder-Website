@@ -98,9 +98,11 @@ app.post("/test", async (req, res) => {
 });
 
 app.get('/developers', (req, res) => {
-  res.status(202).render('developers');
+  res.status(202).render('developers', { title: 'Developers' });
 });
-
+app.get('/faq', (req, res) => {
+  res.status(202).render('faq', { title: 'FAQs' });
+})
 
 //------------------------------------------------------
 //Not found! Route (Should be bottom of hierarchy)

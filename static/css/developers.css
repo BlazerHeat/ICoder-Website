@@ -95,25 +95,27 @@
 
 .msg-btn, .follow-btn{
     text-decoration: none;
-    background: var(--cyan-pale);
-    border: 1px solid var(--cyan-pale);
-    padding: .7em 1em;
-    color: var(--dark-blue);
+    font-family: 'Brutal Type', sans-serif;
+    color: white;
+    padding: .5em .8em;
     border-radius: 3px;
-    font-family: Montserrat, sans-serif;
     cursor: pointer;
 
     margin-top: 10px;
 }
+
+.msg-btn i, .follow-btn i {
+    margin-left: 2px;
+}
+
+.msg-btn {
+    background: #25D366;
+}
 .follow-btn{
     margin-left: 10px;
-    background: transparent;
-    color: var(--cyan-pale);
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+    color: white;
     transition: color .2s ease-in, background .2s ease-in;
-}
-.follow-btn:hover{
-    color: var(--dark-blue);
-    background: var(--cyan-pale);
 }
 
 @keyframes rainbow_animation {

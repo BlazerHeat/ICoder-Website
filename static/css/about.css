@@ -1,0 +1,61 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+/* Column container */
+.row {
+    padding-top: 81px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    color: white;
+
+    background: linear-gradient(-45deg, rgba(187, 0, 71, 0.7), rgba(51, 1, 113, 0.7)), #000;
+}
+
+.row h2 {
+    border-bottom: 2px solid white;
+    display: inline-block;
+    margin-bottom: 7px;
+}
+.row img {
+    border-radius: 10px;
+    padding: 3px;
+    border: 3px solid var(--black-high-opacity);
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    flex: 30%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+}
+.side img {
+    border: 3px solid var(--white-high-opacity);
+}
+
+/* Main column */
+.main {
+    flex: 70%;
+    padding: 20px;
+}
+.main img {
+    width: 45%;
+    max-width: 620px;
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .row {
+        flex-direction: column;
+    }
+    .main img {
+        width: 80%;
+        max-width: 620px;
+    }
+}

@@ -34,8 +34,8 @@ app.set("layout extractMetas", true);
 app.set("layout extractStyles", true);
 
 //middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(expressLayouts);
 app.use(compression());
@@ -98,11 +98,14 @@ app.post("/test", async (req, res) => {
 });
 
 app.get('/developers', (req, res) => {
-  res.status(202).render('developers', { title: 'Developers' });
+  res.status(202).render('developers', { title: 'Developers', user: req.user });
 });
 app.get('/faq', (req, res) => {
-  res.status(202).render('faq', { title: 'FAQs' });
-})
+  res.status(202).render('faq', { title: 'FAQs', user: req.user });
+});
+app.get('/about', (req, res) => {
+  res.status(202).render('about', { title: 'About', user: req.user });
+});
 
 //------------------------------------------------------
 //Not found! Route (Should be bottom of hierarchy)

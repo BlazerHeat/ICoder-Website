@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/contact.css">
+<div class="container">
+    <h1 class="heading">We'd like to hear you!</h1>
+    <p class="desc">Got issues, questions or suggestions? we got you covered!</p>
+    <form method="post" action="/contact" onsubmit="return checkForm()">
+        <div class="input-container">
+            <input type="text" name="name" id="name" required=""/>
+            <label for="name">Name</label>
+            <p id="name-error" style="color: red; font-size: .8em"></p>
+        </div>
+        <div class="input-container">
+            <input type="email" name="email" id="email" required=""/>
+            <label for="email">Email</label>
+            <p id="email-error" style="color: red; font-size: .8em"></p>
+        </div>
+
+        <div>
+            <label style="font-weight: 500; font-size: 1.2em" for="message">Message</label> <br />
+            <textarea name="message" id="message" required="" rows="3"></textarea>
+            <p id="message-error" style="color: red; font-size: .8em"></p>
+        </div>
+        <% if(typeof submitted !== 'undefined' && submitted) { %>
+            <button type="submit" class="btn-active" disabled> Thank you! <i class="fas fa-paper-plane"></i></button>
+        <% } else { %>
+            <button type="submit"> Submit <i class="fas fa-paper-plane"></i></button>
+        <% } %>
+    </form>
+</div>
+
+<script type="text/javascript" src="/js/contact.js"></script>

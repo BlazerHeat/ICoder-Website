@@ -23,6 +23,7 @@ const authRoute = require('./routes/auth');
 const profileRoute = require('./routes/profile');
 const questionsRoute = require('./routes/questions');
 const prepareRoute = require('./routes/prepare');
+const contactRoute = require('./routes/contact');
 
 const app = express();
 const PORT = parseInt(process.env.PORT, 10) || 3000;
@@ -55,6 +56,7 @@ app.use('/auth', authRoute);
 app.use('/profile', profileRoute);
 app.use('/questions', questionsRoute);
 app.use('/prepare', prepareRoute);
+app.use('/contact', contactRoute);
 
 //main routes
 app.get("/", async (req, res) => {

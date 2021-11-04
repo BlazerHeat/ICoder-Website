@@ -1,0 +1,120 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #bb0047e0, #330171c7), #000;
+
+    padding-top: 165px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.heading {
+    margin-bottom: 10px;
+    border-bottom: 3px solid white;
+    color: white;
+    text-align: center;
+}
+.desc {
+    width: 50%;
+    margin-bottom: 30px;
+    color: white;
+    text-align: center;
+}
+
+form {
+
+    max-width: 720px;
+    width: 90%;
+
+    background: var(--bg-color2);
+
+    border-radius: 10px;
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.2);
+
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.input-container{
+    position:relative;
+    margin: 25px 0;
+}
+.input-container label{
+    position:absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.6em;
+    color: var(--black);
+    transition: all .25s ease-in-out;
+}
+.input-container input{
+    border:0;
+    border-bottom: 1px solid #555;
+    background:transparent;
+    width: 90%;
+    max-width: 310px;
+    padding: 8px 0 5px 0;
+    color: black;
+    font-size: 1.4em;
+}
+
+.input-container input:focus{
+    border:none;
+    outline:none;
+    border-bottom:1px solid var(--cyan);
+}
+
+.btn{
+    color: var(--cyan);
+    background-color:#e74c3c;
+    outline: none;
+    border: 0;
+    padding:10px 20px;
+    text-transform:uppercase;
+    margin-top:50px;
+    border-radius:2px;
+    cursor:pointer;
+    position:relative;
+}
+
+#message {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 200px;
+    padding: 8px 0 5px 10px;
+    font-size: 2em;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+    top: -18px;
+    font-size: 1em;
+}
+
+button[type=submit] {
+    cursor: pointer;
+    padding: .5em .6em;
+    background: var(--green);
+    color: var(--white);
+
+    border: 2px solid transparent;
+    border-radius: 1200px;
+
+    font-family: 'Brutal Type', 'Poppins', sans-serif;
+    font-size: 1em;
+
+    margin-top: 1em;
+
+    transition: background .25s ease-in, border .25s ease-in, color .25s ease-in;
+}
+button[type=submit]:hover, .btn-active {
+    background: transparent !important;
+    border: 2px solid var(--green) !important;
+    color: var(--green) !important;
+}

@@ -108,6 +108,9 @@ app.get('/faq', (req, res) => {
 app.get('/about', (req, res) => {
   res.status(202).render('about', { title: 'About', user: req.user });
 });
+app.get('/carriers', (req, res) => {
+  res.status(202).render('carriers', { title: 'Carriers', user: req.user });
+});
 
 //------------------------------------------------------
 //Not found! Route (Should be bottom of hierarchy)

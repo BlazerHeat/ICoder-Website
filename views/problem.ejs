@@ -44,7 +44,7 @@
             <p><%- explanation %></p>
         </div>
     </div>
-    <form class="page" action=<%= `/questions/${lang}/${id}`%> method="POST">
+    <form class="page" action=<%= `/questions/${lang === 'python3' ? 'python' : lang}/${id}`%> method="POST">
         <label class="form-label">
             Theme:
             <select id="theme" name="theme" style="font-size: 1em">

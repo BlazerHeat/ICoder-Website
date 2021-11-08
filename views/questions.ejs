@@ -9,13 +9,13 @@
             <% if(questions.length > 0) { %>
             <% questions.forEach(question => { %>
                 <div class="question">
-                    <a href=<%= `/questions/${question.lang}/${question.id}` %> class="question-link">
+                    <a href=<%= `/questions/${language}/${question.id}` %> class="question-link">
                         <h2 class="title"><%- question.head %></h2>
                         <p><span style="color: var(--green);"><%= question.difficulty === 0  ? 'Easy' : question.difficulty === 1 ? 'Medium' : 'Hard' %>,</span> Max Score: <span style="color: var(--google-btn)"><%- question.maxScore %></span></p>
                         <% if(!question.solved) { %>
-                            <a href=<%= `/questions/${question.lang}/${question.id}` %> class="solve-challenge">Solve Challenge</a>
+                            <a href=<%= `/questions/${language}/${question.id}` %> class="solve-challenge">Solve Challenge</a>
                         <% } else { %>
-                            <a href=<%= `/questions/${question.lang}/${question.id}` %> class="solved-challenge">Solved</a>
+                            <a href=<%= `/questions/${language}/${question.id}` %> class="solved-challenge">Solved</a>
                         <% } %>
                     </a>
                 </div>

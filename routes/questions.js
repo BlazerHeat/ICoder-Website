@@ -89,7 +89,6 @@ router.get('/:lang', async (req, res) => {
 
    const questions = filterQuestions(await getQuestions(lang, difficulty), status, req.user);
 
-
    let title;
    switch (lang){
        case 'java':

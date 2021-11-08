@@ -12,9 +12,5 @@ const swiper = new Swiper('.swiper', {
     },
     keyboard: {
         enabled: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
+    }
 });

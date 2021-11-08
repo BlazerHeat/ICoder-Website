@@ -7,7 +7,7 @@ const compiler = require("../utils/compiler");
 router.use(authCheck);
 router.use('/:lang', (req, res, next) => {
     const lang = req.params.lang;
-    if(lang !== 'java' && lang !== 'cpp' && lang !== 'python3')
+    if(lang !== 'java' && lang !== 'cpp' && lang !== 'python')
         res.status(302).redirect('/prepare');
     else
         next();
@@ -41,6 +41,9 @@ function getFormValues(reqStatus, reqDiff){
     return {status, difficulty};
 }
 async function getQuestions(lang, diff){
+    if(lang === 'python')
+        lang = 'python3';
+
     if(diff[0] && diff[1] && diff[2])
         return queAns.find({ lang });
 
@@ -92,7 +95,7 @@ router.get('/:lang', async (req, res) => {
        case 'java':
            title = 'JAVA';
            break;
-       case 'python3':
+       case 'python':
            title = 'PYTHON';
            break;
        case 'cpp':

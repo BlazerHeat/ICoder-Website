@@ -21,7 +21,7 @@ function getBadges(user){
 }
 
 router.get('/', (req, res) => {
-    const badges = getBadges(req.user)
+    const badges = getBadges(req.user);
 
     res.status(202);
     res.render("prepare", { title: 'Prepare', user: req.user, ...badges });

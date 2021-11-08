@@ -7,7 +7,7 @@ const compiler = require("../utils/compiler");
 router.use(authCheck);
 router.use('/:lang', (req, res, next) => {
     const lang = req.params.lang;
-    if(lang !== 'java' && lang !== 'cpp' && lang !== 'python')
+    if(lang !== 'java' && lang !== 'cpp' && lang !== 'python3')
         res.status(302).redirect('/prepare');
     else
         next();

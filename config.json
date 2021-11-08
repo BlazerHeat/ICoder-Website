@@ -1,4 +1,6 @@
 {
   "JDoodle_API_ENDPOINT": "https://api.jdoodle.com/v1/execute",
-  "Cookies_Life": 86400000
+  "Cookies_Life": 86400000,
+  "SILVER_THRES": 50,
+  "GOLD_THRES": 100
 }

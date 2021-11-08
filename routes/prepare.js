@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const authCheck = require('../utils/authcheck');
+const { SILVER_THRES, GOLD_THRES } = require('../config.json');
 
 router.use(authCheck);
 
@@ -9,9 +10,9 @@ function getBadges(user){
 
     Object.keys(badges).forEach(key => {
         const value = badges[key];
-        if(value >= 100)
+        if(value >= GOLD_THRES)
             badges[key] = 'gold';
-        else if (value >= 50)
+        else if (value >= SILVER_THRES)
             badges[key] = 'silver';
         else
             badges[key] = 'bronze';

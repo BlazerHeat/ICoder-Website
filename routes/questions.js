@@ -168,15 +168,31 @@ router.post('/:lang/:id', async (req, res) => {
     }
 
     let alreadySolved = false;
+    let solvedLang;
+    let totalPoints = 0;
     if(output === stdout || output + '\n' === stdout){
         result.success = true;
         result.message = "Congratulations!";
 
         alreadySolved = user.solved.includes(data.id);
         if(!alreadySolved){
-            user.javaPoints += data.maxScore;
             user.solved.push(req.params.id);
-            await users.findOneAndUpdate({ id: user.id }, { javaPoints: user.javaPoints, solved: user.solved });
+            if(lang === 'java') {
+                user.javaPoints += data.maxScore;
+                await users.findOneAndUpdate({ id: user.id }, { javaPoints: user.javaPoints, solved: user.solved });
+                solvedLang = 'Java';
+                totalPoints = user.javaPoints;
+            } else if (lang === 'python3') {
+                user.pythonPoints += data.maxScore;
+                await users.findOneAndUpdate({ id: user.id }, { pythonPoints: user.pythonPoints, solved: user.solved });
+                solvedLang = 'Python';
+                totalPoints = user.pythonPoints;
+            } else if (lang === 'cpp'){
+                user.cppPoints += data.maxScore;
+                await users.findOneAndUpdate({ id: user.id }, { cppPoints: user.cppPoints, solved: user.solved });
+                solvedLang = 'C++';
+                totalPoints = user.cppPoints;
+            }
         }
     }
     else {
@@ -184,7 +200,7 @@ router.post('/:lang/:id', async (req, res) => {
     }
 
     res.status(202);
-    res.render("problem", { user, ...data, result, alreadySolved, scrollToResult: true });
+    res.render("problem", { user, ...data, result, alreadySolved, scrollToResult: true, solvedLang, totalPoints });
 });
 
 module.exports = router;

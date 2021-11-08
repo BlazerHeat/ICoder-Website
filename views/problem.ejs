@@ -82,7 +82,7 @@
                 </div>
             </div>
             <% if(result.success && !alreadySolved) { %>
-                <p style="color: var(--green); font-size: 1.5em;">You earned: <span style="color: var(--google-btn);"><%= maxScore %> points!</span><span style="color: var(--gray-fonts); margin-left: 5px">(total: <%= user.javaPoints %> Java points)</span></p>
+                <p style="color: var(--green); font-size: 1.5em;">You earned: <span style="color: var(--google-btn);"><%= maxScore %> points!</span><span style="color: var(--gray-fonts); margin-left: 5px">(total: <%= totalPoints %> <%= solvedLang %> points)</span></p>
             <% } %>
         <% } %>
 

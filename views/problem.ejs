@@ -5,7 +5,7 @@
     <div class="header">
         <h1><%- title %></h1>
         <p><span style="color: var(--green);"><%= difficulty === 0  ? 'Easy' : difficulty === 1 ? 'Medium' : 'Hard' %>,</span> Max Score: <span style="color: var(--google-btn)"><%- maxScore %></span></p>
-        <a href="/questions/java" class="header-link"><i class="fas fa-angle-left"></i>Questions</a>
+        <a href="/questions/<%= lang === 'python3' ? 'python' : lang %>" class="header-link"><i class="fas fa-angle-left"></i>Questions</a>
     </div>
     <div class="page">
         <div class="question-arr">

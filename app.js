@@ -13,7 +13,6 @@ const chalk = require('chalk');
 const config = require('./config.json');
 const path = require('path');
 const express = require("express");
-const bodyParser = require("body-parser");
 const passport = require("passport");
 const expressLayouts = require('express-ejs-layouts')
 const cookieSession = require("cookie-session");

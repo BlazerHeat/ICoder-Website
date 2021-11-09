@@ -70,17 +70,6 @@ app.get("/", async (req, res) => {
 });
 
 
-
-app.get("/test", async (req, res) => {
-  res.status(202);
-  res.render("test", {
-    title: "Test",
-    output: "",
-    user: req.user,
-    username: req.user ? req.user.displayName : "Anonymous",
-  });
-});
-
 app.post("/test", async (req, res) => {
   let language = req.body.language;
   let script = req.body.script;

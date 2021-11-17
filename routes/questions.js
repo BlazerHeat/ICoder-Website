@@ -8,7 +8,7 @@ router.use(authCheck);
 router.use('/:lang', (req, res, next) => {
     const lang = req.params.lang;
     if(lang !== 'java' && lang !== 'cpp' && lang !== 'python')
-        res.status(302).redirect('/prepare');
+        res.status(302).redirect("/practice");
     else
         next();
 });
@@ -81,7 +81,7 @@ function filterQuestions(questions, status, user){
 
 router.get('/', (req, res) => {
     res.status(302);
-    res.redirect('/prepare');
+    res.redirect("/practice");
 });
 router.get('/:lang', async (req, res) => {
    const lang = req.params.lang;

@@ -1,17 +1,17 @@
 {
   "GOOGLE": {
-    "clientID": "593271885463-qeo321u7b46lasrrh72an48mamoj1ibg.apps.googleusercontent.com",
-    "clientSecret": "uVLIA2WPq3ilpj9_QpjUw8IZ",
+    "clientID": "-",
+    "clientSecret": "-",
     "callbackURL": "/auth/google/callback"
   },
   "GITHUB": {
-    "clientID": "8f1daafdca2cf1199d27",
-    "clientSecret": "a1393a471c05f1dff227ce209c2a0bd4e9f45470",
+    "clientID": "-",
+    "clientSecret": "-",
     "callbackURL": "/auth/github/callback"
   },
   "FACEBOOK": {
-    "clientID": "598480324522480",
-    "clientSecret": "83ff940a354cb7f5012cf52f99721f62",
+    "clientID": "-",
+    "clientSecret": "-",
     "callbackURL": "/auth/facebook/callback"
   }
 }

@@ -4,7 +4,6 @@
   "description": "SGP project",
   "main": "app.js",
   "scripts": {
-    "run": "node app.js",
     "start": "node app.js",
     "devStart": "nodemon app.js"
   },
@@ -28,5 +27,8 @@
     "passport-github2": "^0.1.12",
     "passport-google-oauth20": "^2.0.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

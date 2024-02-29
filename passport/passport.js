@@ -1,7 +1,7 @@
 const passport = require('passport');
 const chalk = require('chalk');
 const Users = require('../database/models/user');
-const { GITHUB, FACEBOOK } = require('./config.json');
+const { FACEBOOK } = require('./config.json');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const GithubStrategy = require('passport-github2').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
@@ -31,6 +31,12 @@ const GOOGLE = {
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "/auth/google/callback",
 };
+
+const GITHUB = {
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: '/auth/github/callback'
+}
 
 passport.use("google", new GoogleStrategy(GOOGLE, (accessToken, refreshToken, profile, cb) => {
     const displayPic = profile.photos.length !== 0 ? profile.photos[0].value : "";
